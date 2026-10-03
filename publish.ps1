@@ -111,7 +111,7 @@ if ($Status) { Show-Status; return }
 
 if ($Now) { Publish; return }   # jednorazove spusteni — po publishi skonci, nebezi done
 
-Log 'watcher start, zdroj=' + $DistDir
+Log ('watcher start, zdroj=' + $DistDir)
 
 $w = New-Object System.IO.FileSystemWatcher
 $w.Path = $DistDir
