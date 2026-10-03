@@ -17,6 +17,10 @@ param(
   [switch]$Status   # jen vypis stavu, nic nepublikuje
 )
 $ErrorActionPreference = 'Continue'
+# Nikdy zadne interaktivni okno/dotaz: na pozadi by helper-selector / login visel
+# donekonecna. Bez credentialu to spadne hned s hlaskou v logu a zkusi se znova.
+$env:GIT_TERMINAL_PROMPT = '0'
+$env:GCM_INTERACTIVE = 'never'
 $Repo      = Split-Path -Parent $MyInvocation.MyCommand.Path
 $AppRoot   = 'D:\DEVELOPER\NolimitCoderV2\NolimitCoder'
 $DistDir   = Join-Path $AppRoot 'dist'
